@@ -399,7 +399,7 @@ type CompoundKey implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ForeignKeyCondition
+    condition: ForeignKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -5779,7 +5779,7 @@ type Person implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -5808,7 +5808,7 @@ type Person implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -5850,7 +5850,7 @@ type Person implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ForeignKeyCondition
+    condition: ForeignKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -5911,7 +5911,7 @@ type Person implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: LeftArmCondition
+    condition: LeftArmCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -5951,7 +5951,7 @@ type Person implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonSecretCondition
+    condition: PersonSecretCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -5980,7 +5980,7 @@ type Person implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PostCondition
+    condition: PostCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6284,7 +6284,7 @@ type Post implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: TypeCondition
+    condition: TypeCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6313,7 +6313,7 @@ type Post implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: TypeCondition
+    condition: TypeCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6538,7 +6538,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6567,7 +6567,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: DefaultValueCondition
+    condition: DefaultValueCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6596,7 +6596,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: EdgeCaseCondition
+    condition: EdgeCaseCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6625,7 +6625,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ForeignKeyCondition
+    condition: ForeignKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6654,7 +6654,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: InputCondition
+    condition: InputCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6683,7 +6683,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: Issue756Condition
+    condition: Issue756Condition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6712,7 +6712,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: LeftArmCondition
+    condition: LeftArmCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6741,7 +6741,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: MyTableCondition
+    condition: MyTableCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6770,7 +6770,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: NonUpdatableViewCondition
+    condition: NonUpdatableViewCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6799,7 +6799,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: NoPrimaryKeyCondition
+    condition: NoPrimaryKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6828,7 +6828,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: NullTestRecordCondition
+    condition: NullTestRecordCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6857,7 +6857,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PatchCondition
+    condition: PatchCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6886,7 +6886,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6915,7 +6915,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonSecretCondition
+    condition: PersonSecretCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6944,7 +6944,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PostCondition
+    condition: PostCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -6973,7 +6973,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ReservedInputRecordCondition
+    condition: ReservedInputRecordCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7002,7 +7002,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ReservedPatchRecordCondition
+    condition: ReservedPatchRecordCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7031,7 +7031,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ReservedCondition
+    condition: ReservedCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7060,7 +7060,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: SimilarTable1Condition
+    condition: SimilarTable1Condition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7089,7 +7089,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: SimilarTable2Condition
+    condition: SimilarTable2Condition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7118,7 +7118,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: TestviewCondition
+    condition: TestviewCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7147,7 +7147,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: TypeCondition
+    condition: TypeCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7176,7 +7176,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UpdatableViewCondition
+    condition: UpdatableViewCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7205,7 +7205,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ViewTableCondition
+    condition: ViewTableCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7639,7 +7639,7 @@ type Q implements N {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int

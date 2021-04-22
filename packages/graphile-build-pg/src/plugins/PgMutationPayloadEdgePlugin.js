@@ -72,6 +72,9 @@ export default (function PgMutationPayloadEdgePlugin(
         canOrderBy &&
         (TableOrderByType.getValues().find(v => v.name === "PRIMARY_KEY_ASC") ||
           TableOrderByType.getValues()[0]);
+      const OrderByType = canOrderBy
+        ? new GraphQLList(new GraphQLNonNull(TableOrderByType))
+        : null;
       return extend(
         fields,
         {
@@ -85,22 +88,21 @@ export default (function PgMutationPayloadEdgePlugin(
                 "field"
               ),
               type: TableEdgeType,
-              args: canOrderBy
-                ? {
-                    orderBy: {
-                      description: build.wrapDescription(
-                        `The method to use when ordering \`${tableTypeName}\`.`,
-                        "arg"
-                      ),
-                      type: new GraphQLList(
-                        new GraphQLNonNull(TableOrderByType)
-                      ),
-                      defaultValue: defaultValueEnum
-                        ? [defaultValueEnum.value]
-                        : null,
-                    },
-                  }
-                : {},
+              args:
+                canOrderBy && OrderByType
+                  ? {
+                      orderBy: {
+                        description: build.wrapDescription(
+                          `The method to use when ordering \`${tableTypeName}\`.`,
+                          "arg"
+                        ),
+                        type: OrderByType,
+                        defaultValue: defaultValueEnum
+                          ? [defaultValueEnum.value]
+                          : null,
+                      },
+                    }
+                  : {},
               resolve(data, { orderBy: rawOrderBy }, _context, resolveInfo) {
                 if (!data.data) {
                   return null;

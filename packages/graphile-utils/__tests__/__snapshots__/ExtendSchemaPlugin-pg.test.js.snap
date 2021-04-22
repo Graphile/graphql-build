@@ -46,7 +46,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -75,7 +75,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -116,7 +116,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
 }
 
@@ -361,7 +361,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -390,7 +390,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -556,7 +556,7 @@ type User implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 }
 
@@ -808,7 +808,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -837,7 +837,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -878,7 +878,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
 }
 
@@ -1123,7 +1123,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -1152,7 +1152,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -1412,7 +1412,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -1441,7 +1441,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -1701,7 +1701,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -1730,7 +1730,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -1990,7 +1990,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -2019,7 +2019,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -2279,7 +2279,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -2308,7 +2308,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -2612,7 +2612,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -2641,7 +2641,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -2901,7 +2901,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -2930,7 +2930,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User
@@ -3192,7 +3192,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
   ): PetsConnection
 
   """Reads and enables pagination through a set of \`User\`."""
@@ -3221,7 +3221,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
   ): UsersConnection
   petById(id: Int!): Pet
   userById(id: Int!): User

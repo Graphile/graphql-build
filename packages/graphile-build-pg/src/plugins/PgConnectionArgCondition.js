@@ -100,6 +100,7 @@ export default (function PgConnectionArgCondition(builder) {
         pgColumnFilter,
         inflection,
         pgOmit: omit,
+        graphql: { coerceInputValue = v => v },
       } = build;
       const {
         scope: {
@@ -192,6 +193,7 @@ export default (function PgConnectionArgCondition(builder) {
               "arg"
             ),
             type: TableConditionType,
+            defaultValue: coerceInputValue({}, TableConditionType),
           },
         },
         `Adding condition to connection field '${fieldName}' of '${Self.name}'`

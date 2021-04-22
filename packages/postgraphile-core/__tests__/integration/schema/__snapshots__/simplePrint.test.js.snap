@@ -46,7 +46,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: DefaultValueCondition
+    condition: DefaultValueCondition = {}
   ): DefaultValuesConnection
 
   """Reads and enables pagination through a set of \`ForeignKey\`."""
@@ -75,7 +75,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ForeignKeyCondition
+    condition: ForeignKeyCondition = {}
   ): ForeignKeysConnection
 
   """Reads and enables pagination through a set of \`Input\`."""
@@ -104,7 +104,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: InputCondition
+    condition: InputCondition = {}
   ): InputsConnection
 
   """Reads and enables pagination through a set of \`NoPrimaryKey\`."""
@@ -133,7 +133,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: NoPrimaryKeyCondition
+    condition: NoPrimaryKeyCondition = {}
   ): NoPrimaryKeysConnection
 
   """Reads and enables pagination through a set of \`NonUpdatableView\`."""
@@ -162,7 +162,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: NonUpdatableViewCondition
+    condition: NonUpdatableViewCondition = {}
   ): NonUpdatableViewsConnection
 
   """Reads and enables pagination through a set of \`Patch\`."""
@@ -191,7 +191,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PatchCondition
+    condition: PatchCondition = {}
   ): PatchesConnection
 
   """Reads and enables pagination through a set of \`Post\`."""
@@ -220,7 +220,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PostCondition
+    condition: PostCondition = {}
   ): PostsConnection
 
   """Reads and enables pagination through a set of \`Reserved\`."""
@@ -249,7 +249,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ReservedCondition
+    condition: ReservedCondition = {}
   ): ReservedsConnection
 
   """Reads and enables pagination through a set of \`ReservedPatchRecord\`."""
@@ -278,7 +278,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ReservedPatchRecordCondition
+    condition: ReservedPatchRecordCondition = {}
   ): ReservedPatchRecordsConnection
 
   """Reads and enables pagination through a set of \`ReservedInputRecord\`."""
@@ -307,7 +307,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ReservedInputRecordCondition
+    condition: ReservedInputRecordCondition = {}
   ): ReservedInputRecordsConnection
 
   """Reads and enables pagination through a set of \`SimilarTable1\`."""
@@ -336,7 +336,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: SimilarTable1Condition
+    condition: SimilarTable1Condition = {}
   ): SimilarTable1SConnection
 
   """Reads and enables pagination through a set of \`SimilarTable2\`."""
@@ -365,7 +365,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: SimilarTable2Condition
+    condition: SimilarTable2Condition = {}
   ): SimilarTable2SConnection
 
   """Reads and enables pagination through a set of \`Testview\`."""
@@ -394,7 +394,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: TestviewCondition
+    condition: TestviewCondition = {}
   ): TestviewsConnection
 
   """Reads and enables pagination through a set of \`ViewTable\`."""
@@ -423,7 +423,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ViewTableCondition
+    condition: ViewTableCondition = {}
   ): ViewTablesConnection
 
   """Reads and enables pagination through a set of \`Type\`."""
@@ -452,7 +452,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: TypeCondition
+    condition: TypeCondition = {}
   ): TypesConnection
 
   """Reads and enables pagination through a set of \`UpdatableView\`."""
@@ -481,7 +481,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UpdatableViewCondition
+    condition: UpdatableViewCondition = {}
   ): UpdatableViewsConnection
 
   """Reads and enables pagination through a set of \`CompoundKey\`."""
@@ -510,7 +510,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
   ): CompoundKeysConnection
 
   """Reads and enables pagination through a set of \`EdgeCase\`."""
@@ -539,7 +539,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: EdgeCaseCondition
+    condition: EdgeCaseCondition = {}
   ): EdgeCasesConnection
 
   """Reads and enables pagination through a set of \`Issue756\`."""
@@ -568,7 +568,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: Issue756Condition
+    condition: Issue756Condition = {}
   ): Issue756SConnection
 
   """Reads and enables pagination through a set of \`LeftArm\`."""
@@ -597,7 +597,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: LeftArmCondition
+    condition: LeftArmCondition = {}
   ): LeftArmsConnection
 
   """Reads and enables pagination through a set of \`MyTable\`."""
@@ -626,7 +626,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: MyTableCondition
+    condition: MyTableCondition = {}
   ): MyTablesConnection
 
   """Reads and enables pagination through a set of \`NullTestRecord\`."""
@@ -655,7 +655,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: NullTestRecordCondition
+    condition: NullTestRecordCondition = {}
   ): NullTestRecordsConnection
 
   """Reads and enables pagination through a set of \`Person\`."""
@@ -684,7 +684,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
   ): PeopleConnection
 
   """Reads and enables pagination through a set of \`PersonSecret\`."""
@@ -713,7 +713,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonSecretCondition
+    condition: PersonSecretCondition = {}
   ): PersonSecretsConnection @deprecated(reason: "This is deprecated (comment on table c.person_secret).")
   defaultValueById(id: Int!): DefaultValue
   inputById(id: Int!): Input
@@ -1059,7 +1059,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
   ): PeopleConnection
 
   """Reads and enables pagination through a set of \`Person\`."""
@@ -1373,7 +1373,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonSecretCondition
+    condition: PersonSecretCondition = {}
   ): PersonSecretsConnection! @deprecated(reason: "This is deprecated (comment on table c.person_secret).")
 
   """Reads a single \`LeftArm\` that is related to this \`Person\`."""
@@ -1405,7 +1405,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: LeftArmCondition
+    condition: LeftArmCondition = {}
   ): LeftArmsConnection! @deprecated(reason: "Please use leftArmByPersonId instead")
 
   """Reads and enables pagination through a set of \`Post\`."""
@@ -1434,7 +1434,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PostCondition
+    condition: PostCondition = {}
   ): PostsConnection!
 
   """Reads and enables pagination through a set of \`CompoundKey\`."""
@@ -1463,7 +1463,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
   ): CompoundKeysConnection!
 
   """Reads and enables pagination through a set of \`CompoundKey\`."""
@@ -1492,7 +1492,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
   ): CompoundKeysConnection!
 
   """Reads and enables pagination through a set of \`ForeignKey\`."""
@@ -1521,7 +1521,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ForeignKeyCondition
+    condition: ForeignKeyCondition = {}
   ): ForeignKeysConnection!
   computedComplex(a: Int, b: String): PersonComputedComplexRecord
   computedFirstArgInout: Person
@@ -1799,7 +1799,7 @@ type Post implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: TypeCondition
+    condition: TypeCondition = {}
   ): TypesConnection!
 
   """Reads a single \`Type\` that is related to this \`Post\`."""
@@ -1831,7 +1831,7 @@ type Post implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: TypeCondition
+    condition: TypeCondition = {}
   ): TypesConnection! @deprecated(reason: "Please use typeById instead")
   computedCompoundTypeArray(object: CompoundTypeInput): [CompoundType]
   computedIntervalArray: [Interval]
@@ -2653,7 +2653,7 @@ type CompoundKey implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: ForeignKeyCondition
+    condition: ForeignKeyCondition = {}
   ): ForeignKeysConnection!
 
   """

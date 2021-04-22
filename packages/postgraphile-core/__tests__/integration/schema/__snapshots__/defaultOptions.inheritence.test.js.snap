@@ -407,7 +407,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: FileCondition
+    condition: FileCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -436,7 +436,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserFileCondition
+    condition: UserFileCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -465,7 +465,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserCondition
+    condition: UserCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -649,7 +649,7 @@ type User implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UserFileCondition
+    condition: UserFileCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int

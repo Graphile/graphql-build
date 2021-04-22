@@ -2879,7 +2879,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -2902,7 +2902,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -2925,7 +2925,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -2948,7 +2948,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3028,7 +3028,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: LeftArmCondition
+    condition: LeftArmCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3068,7 +3068,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonSecretCondition
+    condition: PersonSecretCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3336,7 +3336,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3359,7 +3359,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3382,7 +3382,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: EdgeCaseCondition
+    condition: EdgeCaseCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3405,7 +3405,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: EdgeCaseCondition
+    condition: EdgeCaseCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3428,7 +3428,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: Issue756Condition
+    condition: Issue756Condition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3451,7 +3451,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: Issue756Condition
+    condition: Issue756Condition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3474,7 +3474,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: LeftArmCondition
+    condition: LeftArmCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3497,7 +3497,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: LeftArmCondition
+    condition: LeftArmCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3520,7 +3520,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: MyTableCondition
+    condition: MyTableCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3543,7 +3543,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: MyTableCondition
+    condition: MyTableCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3566,7 +3566,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: NullTestRecordCondition
+    condition: NullTestRecordCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3589,7 +3589,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: NullTestRecordCondition
+    condition: NullTestRecordCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3612,7 +3612,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3635,7 +3635,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3658,7 +3658,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonSecretCondition
+    condition: PersonSecretCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -3681,7 +3681,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonSecretCondition
+    condition: PersonSecretCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -4064,7 +4064,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -4087,7 +4087,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7183,7 +7183,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7200,7 +7200,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7453,7 +7453,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CompoundKeyCondition
+    condition: CompoundKeyCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7470,7 +7470,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: EdgeCaseCondition
+    condition: EdgeCaseCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7487,7 +7487,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: Issue756Condition
+    condition: Issue756Condition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7504,7 +7504,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: LeftArmCondition
+    condition: LeftArmCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7521,7 +7521,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: MyTableCondition
+    condition: MyTableCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7538,7 +7538,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: NullTestRecordCondition
+    condition: NullTestRecordCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7555,7 +7555,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7572,7 +7572,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonSecretCondition
+    condition: PersonSecretCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -7764,7 +7764,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -8708,7 +8708,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -8814,7 +8814,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -8837,7 +8837,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -9344,7 +9344,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -9482,7 +9482,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -9511,7 +9511,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -10036,7 +10036,7 @@ type Person implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -10168,7 +10168,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PersonCondition
+    condition: PersonCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int
@@ -10197,7 +10197,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: PetCondition
+    condition: PetCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int

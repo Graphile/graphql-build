@@ -372,7 +372,7 @@ type Query implements Node {
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: GeomCondition
+    condition: GeomCondition = {}
 
     """Only read the first \`n\` values of the set."""
     first: Int

@@ -43,7 +43,7 @@ export default (function PgConnectionArgOrderByDefaultValue(builder) {
         orderBy: extend(
           args.orderBy,
           {
-            defaultValue: defaultValueEnum && [defaultValueEnum.value],
+            defaultValue: defaultValueEnum ? [defaultValueEnum.value] : null,
           },
           `Adding defaultValue to orderBy for field '${fieldName}' of '${Self.name}'`
         ),

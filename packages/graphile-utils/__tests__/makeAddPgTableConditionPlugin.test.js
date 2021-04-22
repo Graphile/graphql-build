@@ -43,22 +43,27 @@ afterAll(() => {
   }
 });
 
-const PetsCountPlugin = makeAddPgTableConditionPlugin(
-  "graphile_utils",
-  "users",
-  "petCountAtLeast",
-  build => ({
-    description: "Filters users to those that have at least this many pets",
-    type: build.graphql.GraphQLInt,
-  }),
-  (value, helpers, build) => {
-    expect(build.graphql).toBeTruthy();
-    const { sqlTableAlias, sql } = helpers;
-    return sql.fragment`(select count(*) from graphile_utils.pets where pets.user_id = ${sqlTableAlias}.id) >= ${sql.value(
-      value
-    )}`;
-  }
-);
+const makePetsCountPlugin = defaultValue =>
+  makeAddPgTableConditionPlugin(
+    "graphile_utils",
+    "users",
+    "petCountAtLeast",
+    build => ({
+      description: "Filters users to those that have at least this many pets",
+      type: build.graphql.GraphQLInt,
+      defaultValue,
+    }),
+    (value, helpers, build) => {
+      expect(build.graphql).toBeTruthy();
+      const { sqlTableAlias, sql } = helpers;
+      return sql.fragment`(select count(*) from graphile_utils.pets where pets.user_id = ${sqlTableAlias}.id) >= ${sql.value(
+        value
+      )}`;
+    }
+  );
+
+const PetsCountPlugin = makePetsCountPlugin();
+const PetsCountPluginWithDefaultValue = makePetsCountPlugin(3);
 
 it("allows adding a condition to a Relay connection", async () => {
   const schema = await createPostGraphileSchema(pgPool, ["graphile_utils"], {
@@ -112,6 +117,78 @@ it("allows adding a condition to a simple collection", async () => {
       `
         query {
           allUsersList(condition: { petCountAtLeast: 3 }) {
+            nodeId
+            id
+            name
+            email
+            bio
+          }
+        }
+      `,
+      null,
+      { pgClient },
+      {}
+    );
+    expect(errors).toBeFalsy();
+    expect(data).toBeTruthy();
+    expect(data.allUsersList).toBeTruthy();
+    expect(data.allUsersList.length).toEqual(1);
+    expect(data.allUsersList[0].email).toEqual("caroline@example.com");
+  } finally {
+    await pgClient.release();
+  }
+});
+
+it("uses defaultValue when condition not specified", async () => {
+  const schema = await createPostGraphileSchema(pgPool, ["graphile_utils"], {
+    disableDefaultMutations: true,
+    simpleCollections: "both",
+    appendPlugins: [PetsCountPluginWithDefaultValue],
+  });
+  expect(schema).toMatchSnapshot();
+  const pgClient = await pgPool.connect();
+  try {
+    const { data, errors } = await graphql(
+      schema,
+      `
+        query {
+          allUsersList {
+            nodeId
+            id
+            name
+            email
+            bio
+          }
+        }
+      `,
+      null,
+      { pgClient },
+      {}
+    );
+    expect(errors).toBeFalsy();
+    expect(data).toBeTruthy();
+    expect(data.allUsersList).toBeTruthy();
+    expect(data.allUsersList.length).toEqual(1);
+    expect(data.allUsersList[0].email).toEqual("caroline@example.com");
+  } finally {
+    await pgClient.release();
+  }
+});
+
+it("uses defaultValue when condition empty", async () => {
+  const schema = await createPostGraphileSchema(pgPool, ["graphile_utils"], {
+    disableDefaultMutations: true,
+    simpleCollections: "both",
+    appendPlugins: [PetsCountPluginWithDefaultValue],
+  });
+  expect(schema).toMatchSnapshot();
+  const pgClient = await pgPool.connect();
+  try {
+    const { data, errors } = await graphql(
+      schema,
+      `
+        query {
+          allUsersList(condition: {}) {
             nodeId
             id
             name
