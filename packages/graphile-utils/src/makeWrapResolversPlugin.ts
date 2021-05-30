@@ -20,7 +20,7 @@ import {
 type ResolverWrapperFn<
   TSource = any,
   TContext = any,
-  TArgs = { [argName: string]: any }
+  TArgs extends Record<string, any> = { [argName: string]: any }
 > = (
   resolve: GraphQLFieldResolver<TSource, TContext, TArgs>,
   source: TSource,
@@ -33,19 +33,37 @@ interface ResolverWrapperRequirements {
   siblingColumns?: Array<{ column: string; alias: string }>;
 }
 
-interface ResolverWrapperRule {
+interface ResolverWrapperRule<
+  TSource = any,
+  TContext = any,
+  TArgs extends Record<string, any> = { [argName: string]: any }
+> {
   requires?: ResolverWrapperRequirements;
-  resolve?: ResolverWrapperFn;
+  resolve?: ResolverWrapperFn<TSource, TContext, TArgs>;
   // subscribe?: ResolverWrapperFn;
 }
 
-interface ResolverWrapperRules {
-  [typeName: string]: {
-    [fieldName: string]: ResolverWrapperRule | ResolverWrapperFn;
+type ResolverWrapperRules<T> = {
+  [TTypeName in keyof T]: {
+    [TFieldName in keyof T[TTypeName]]: T[TTypeName][TFieldName] extends ResolverWrapperFn<
+      infer _TSource,
+      infer _TContext,
+      infer _TArgs
+    >
+      ? T[TTypeName][TFieldName]
+      : T[TTypeName][TFieldName] extends ResolverWrapperRule<
+          infer _TSource,
+          infer _TContext,
+          infer _TArgs
+        >
+      ? T[TTypeName][TFieldName]
+      : never;
   };
-}
+};
 
-type ResolverWrapperRulesGenerator = (options: Options) => ResolverWrapperRules;
+type ResolverWrapperRulesGenerator<T> = (
+  options: Options
+) => ResolverWrapperRules<T>;
 
 type ResolverWrapperFilter<T> = (
   context: Context<GraphQLObjectType>,
@@ -54,12 +72,19 @@ type ResolverWrapperFilter<T> = (
   options: Options
 ) => T | null;
 
-type ResolverWrapperFilterRule<T> = (
+type ResolverWrapperFilterRule<
+  T,
+  TSource = any,
+  TContext = any,
+  TArgs extends Record<string, any> = { [argName: string]: any }
+> = (
   match: T
-) => ResolverWrapperRule | ResolverWrapperFn;
+) =>
+  | ResolverWrapperRule<TSource, TContext, TArgs>
+  | ResolverWrapperFn<TSource, TContext, TArgs>;
 
-export default function makeWrapResolversPlugin(
-  rulesOrGenerator: ResolverWrapperRules | ResolverWrapperRulesGenerator
+export default function makeWrapResolversPlugin<T>(
+  rulesOrGenerator: ResolverWrapperRules<T> | ResolverWrapperRulesGenerator<T>
 ): Plugin;
 export default function makeWrapResolversPlugin<T>(
   filter: ResolverWrapperFilter<T>,
@@ -67,8 +92,8 @@ export default function makeWrapResolversPlugin<T>(
 ): Plugin;
 export default function makeWrapResolversPlugin<T>(
   rulesOrGeneratorOrFilter:
-    | ResolverWrapperRules
-    | ResolverWrapperRulesGenerator
+    | ResolverWrapperRules<T>
+    | ResolverWrapperRulesGenerator<T>
     | ResolverWrapperFilter<T>,
   rule?: ResolverWrapperFilterRule<T>
 ): Plugin {
@@ -80,14 +105,14 @@ export default function makeWrapResolversPlugin<T>(
   return (builder: SchemaBuilder, options: Options) => {
     // Disambiguate first argument
     const rulesOrGenerator:
-      | ResolverWrapperRules
-      | ResolverWrapperRulesGenerator
+      | ResolverWrapperRules<T>
+      | ResolverWrapperRulesGenerator<T>
       | null = rule ? null : (rulesOrGeneratorOrFilter as any);
     const filter: ResolverWrapperFilter<T> | null = rule
       ? (rulesOrGeneratorOrFilter as any)
       : null;
 
-    const rules: ResolverWrapperRules | null =
+    const rules: ResolverWrapperRules<T> | null =
       typeof rulesOrGenerator === "function"
         ? rulesOrGenerator(options)
         : rulesOrGenerator;
