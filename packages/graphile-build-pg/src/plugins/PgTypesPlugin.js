@@ -30,6 +30,7 @@ export default (function PgTypesPlugin(
     build => {
       const {
         pgIntrospectionResultsByKind: introspectionResultsByKind,
+        pgMakeFakeEnumIdentifier,
         getTypeByName,
         pgSql: sql,
         inflection,
@@ -754,6 +755,9 @@ export default (function PgTypesPlugin(
             ] = gqlInputType;
           }
         }
+
+        let shouldSkipAddType;
+
         // Enums
         if (
           !gqlTypeByTypeIdAndModifier[type.id][typeModifierKey] &&
@@ -997,31 +1001,61 @@ end`;
           type.type === "d" &&
           type.domainBaseTypeId
         ) {
-          const baseType = getGqlTypeByTypeIdAndModifier(
-            type.domainBaseTypeId,
-            typeModifier
-          );
-          const baseInputType = getGqlInputTypeByTypeIdAndModifier(
-            type.domainBaseTypeId,
-            typeModifier
-          );
-          // Hack stolen from: https://github.com/graphile/postgraphile/blob/ade728ed8f8e3ecdc5fdad7d770c67aa573578eb/src/graphql/schema/type/aliasGqlType.ts#L16
-          gqlTypeByTypeIdAndModifier[type.id][typeModifierKey] = Object.assign(
-            Object.create(baseType),
-            {
-              name: inflection.domainType(type),
-              description: type.description,
-            }
-          );
-          if (baseInputType && baseInputType !== baseType) {
+          // might be used as an enum alias: #1500
+          if (
+            type.name.endsWith("_enum_domain") ||
+            (type.tags && type.tags.enum)
+          ) {
+            const underlyingEnumTypeName = type.name.endsWith("_enum_domain")
+              ? type.name.replace("_enum_domain", "")
+              : type.tags.enum;
+
+            const baseTypeId = pgMakeFakeEnumIdentifier(
+              type.namespaceName,
+              underlyingEnumTypeName
+            );
+
+            const baseType = getGqlTypeByTypeIdAndModifier(
+              baseTypeId,
+              typeModifierKey
+            );
+
+            const baseInputType = getGqlInputTypeByTypeIdAndModifier(
+              baseTypeId,
+              typeModifierKey
+            );
+
+            gqlTypeByTypeIdAndModifier[type.id][typeModifierKey] = baseType;
             gqlInputTypeByTypeIdAndModifier[type.id][
               typeModifierKey
-            ] = Object.assign(Object.create(baseInputType), {
-              name: inflection.inputType(
-                gqlTypeByTypeIdAndModifier[type.id][typeModifierKey]
-              ),
+            ] = baseInputType;
+            shouldSkipAddType = true;
+          } else {
+            const baseType = getGqlTypeByTypeIdAndModifier(
+              type.domainBaseTypeId,
+              typeModifier
+            );
+            const baseInputType = getGqlInputTypeByTypeIdAndModifier(
+              type.domainBaseTypeId,
+              typeModifier
+            );
+            // Hack stolen from: https://github.com/graphile/postgraphile/blob/ade728ed8f8e3ecdc5fdad7d770c67aa573578eb/src/graphql/schema/type/aliasGqlType.ts#L16
+            gqlTypeByTypeIdAndModifier[type.id][
+              typeModifierKey
+            ] = Object.assign(Object.create(baseType), {
+              name: inflection.domainType(type),
               description: type.description,
             });
+            if (baseInputType && baseInputType !== baseType) {
+              gqlInputTypeByTypeIdAndModifier[type.id][
+                typeModifierKey
+              ] = Object.assign(Object.create(baseInputType), {
+                name: inflection.inputType(
+                  gqlTypeByTypeIdAndModifier[type.id][typeModifierKey]
+                ),
+                description: type.description,
+              });
+            }
           }
         }
 
@@ -1082,9 +1116,13 @@ end`;
               gqlTypeByTypeIdAndModifier[type.id][typeModifierKey];
           }
         }
-        addType(
-          getNamedType(gqlTypeByTypeIdAndModifier[type.id][typeModifierKey])
-        );
+        // if its a domain type substituting for an enum table,
+        // adding it creates a duplicate
+        if (!shouldSkipAddType) {
+          addType(
+            getNamedType(gqlTypeByTypeIdAndModifier[type.id][typeModifierKey])
+          );
+        }
         return gqlTypeByTypeIdAndModifier[type.id][typeModifierKey];
       };
 

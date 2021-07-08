@@ -209,6 +209,25 @@ export type PgEntity =
   | PgExtension
   | PgIndex;
 
+const fakeEnumIdentifier = (
+  namespaceName: string,
+  name: string,
+  constraint?: PgConstraint,
+  list = false
+) => {
+  const constraintIdent = constraint
+    ? constraint.type === "p"
+      ? ""
+      : `_${constraint.name}`
+    : "";
+  const baseEnumIdentifier = `FAKE_ENUM_${namespaceName}_${name}${constraintIdent}`;
+  if (list) {
+    return `${baseEnumIdentifier}_list`;
+  } else {
+    return baseEnumIdentifier;
+  }
+};
+
 export type PgIntrospectionResultsByKind = {
   __pgVersion: number,
   attribute: PgAttribute[],
@@ -554,7 +573,12 @@ function enumTables(introspectionResults) {
       const enumTypeArray = {
         kind: "type",
         isFake: true,
-        id: `FAKE_ENUM_${klass.namespaceName}_${klass.name}${constraintIdent}_list`,
+        id: fakeEnumIdentifier(
+          klass.namespaceName,
+          klass.name,
+          constraint,
+          true
+        ),
         name: `_${klass.name}${constraintIdent}`,
         description: null,
         tags: {},
@@ -577,7 +601,12 @@ function enumTables(introspectionResults) {
       const enumType = {
         kind: "type",
         isFake: true,
-        id: `FAKE_ENUM_${klass.namespaceName}_${klass.name}${constraintIdent}`,
+        id: fakeEnumIdentifier(
+          klass.namespaceName,
+          klass.name,
+          constraint,
+          false
+        ),
         name: `${klass.name}${constraintIdent}`,
         description: klass.description,
         tags: { ...klass.tags, ...constraint.tags },
@@ -1319,6 +1348,7 @@ Original error: ${e.message}
         rawIntrospectionResultsByKind,
         build.pgAugmentIntrospectionResults
       );
+
       if (introspectionResultsByKind.__pgVersion < 90500) {
         // TODO:v5: remove this workaround
         // This is a bit of a hack, but until we have plugin priorities it's the
@@ -1329,6 +1359,7 @@ Original error: ${e.message}
       }
       return build.extend(build, {
         pgIntrospectionResultsByKind: introspectionResultsByKind,
+        pgMakeFakeEnumIdentifier: fakeEnumIdentifier,
       });
     },
     ["PgIntrospection"],
