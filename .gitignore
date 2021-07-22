@@ -8,3 +8,7 @@ node_modules
 yarn-error.log
 tsconfig.tsbuildinfo
 .env
+packages/pg-analogues/cockroach/certs
+packages/pg-analogues/cockroach/cockroach*.LATEST
+packages/pg-analogues/cockroach/cockroach-data
+packages/pg-analogues/cockroach/my-safe-directory

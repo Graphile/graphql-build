@@ -1,0 +1,23 @@
+{
+  allPosts {
+    edges {
+      cursor
+      node {
+        ...PostDetails
+      }
+    }
+  }
+}
+
+fragment PersonDetails on Person {
+  id
+  names
+}
+
+fragment PostDetails on Post {
+  id
+  headline
+  author: personByAuthorId {
+    ...PersonDetails
+  }
+}

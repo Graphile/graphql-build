@@ -1,0 +1,121 @@
+query {
+  allTypes {
+    ...typesConnection
+  }
+  allTypesList {
+    ...type
+  }
+  typeById(id: 11) {
+    ...type
+  }
+  type(nodeId: "WyJ0eXBlcyIsMTFd") {
+    ...type
+  }
+  node(nodeId: "WyJ0eXBlcyIsMTFd") {
+    ...type
+  }
+  typeFunction(id: 11) {
+    ...type
+  }
+  typeFunctionList {
+    ...type
+  }
+  typeFunctionConnection {
+    ...typesConnection
+  }
+  personById(id: 1) {
+    typeFunction(id: 11) {
+      ...type
+    }
+    typeFunctionList {
+      ...type
+    }
+    typeFunctionConnection {
+      ...typesConnection
+    }
+  }
+  postById(id: 11) {
+    id
+    headline
+    typeById {
+      ...type
+    }
+    typesBySmallint {
+      ...typesConnection
+    }
+  }
+}
+
+fragment compoundType on CompoundType {
+  a
+  b
+  c
+  d
+  e
+  f
+  fooBar
+}
+
+# This should be the same fragment as in mutations/types.graphql
+fragment type on Type {
+  id
+  smallint
+  bigint
+  numeric
+  decimal
+  boolean
+  varchar
+  enum
+  enumArray
+  textArray
+  json
+  jsonb
+  timestamp
+  timestamptz
+  date
+  time
+  timetz
+  interval {
+    years
+    months
+    days
+    hours
+    minutes
+    seconds
+  }
+  intervalArray {
+    years
+    months
+    days
+    hours
+    minutes
+    seconds
+  }
+  inet
+  postBySmallint {
+    id
+    headline
+  }
+  postById {
+    id
+    headline
+  }
+}
+
+fragment typesConnection on TypesConnection {
+  nodes {
+    ...type
+  }
+  edges {
+    node {
+      ...type
+    }
+  }
+  totalCount
+  pageInfo {
+    hasNextPage
+    hasPreviousPage
+    startCursor
+    endCursor
+  }
+}
